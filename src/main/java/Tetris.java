@@ -6,5 +6,10 @@ public class Tetris
     {
         System.out.println("Hello java!");
     }
+
+    public static int returnTwo()
+    {
+        return 2;
+    }
 }
 
