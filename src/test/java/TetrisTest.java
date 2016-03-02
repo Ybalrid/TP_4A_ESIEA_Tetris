@@ -1,15 +1,14 @@
 package test.java;
 
-import junit.framework.Assert;
-import org.junit.Test;
-
+import static org.junit.Assert.*;
 import main.java.Tetris;
+import org.junit.Test;
 
 public class TetrisTest
 {
     @Test
     public void shouldReturnTwo()
     {
-        Assert.assertEquals(Tetris.returnTwo(), 2);
+        assertEquals(Tetris.returnTwo(), 2);
     }
 }
