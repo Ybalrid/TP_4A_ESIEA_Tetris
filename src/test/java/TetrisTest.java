@@ -8,7 +8,7 @@ import main.java.Tetris;
 public class TetrisTest
 {
     @Test
-    public void souldReturnTwo()
+    public void shouldReturnTwo()
     {
         Assert.assertEquals(Tetris.returnTwo(), 2);
     }
