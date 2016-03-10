@@ -11,7 +11,7 @@
 //
 // Home page: http://www.source-code.biz/snippets/java/RawConsoleInput
 
-package biz.source_code.utils;
+package view;
 
 import java.io.InputStream;
 import java.io.IOException;
