@@ -8,16 +8,21 @@ import model.Grid;
 public class Game {
 
     private Grid grid;
-    private Player player0;
+    private Player players[];
     private boolean gameLooping;
     private long now, last, frameTime;
+    private int level;
 
     public Game()
     {
         //Setup game environement here
         grid = new Grid();
         gameLooping = true;
-        player0 = new Player();
+        players = new Player[2];
+        players[0] = new Player();
+        players[1] = new Player();
+        level = 1;
+
     }
 
     /**
