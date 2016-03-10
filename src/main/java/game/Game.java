@@ -8,16 +8,27 @@ import model.Grid;
 public class Game {
 
     private Grid grid;
+    private boolean gameLooping;
+
 
     public Game()
     {
+        //Setup game environement here
         grid = new Grid();
+
+        gameLooping = true;
     }
 
     /**
      * Launch the main loop of the game
      */
     public void loop()
+    {
+        while(gameLooping)
+            update();
+    }
+
+    private void update()
     {
 
     }
