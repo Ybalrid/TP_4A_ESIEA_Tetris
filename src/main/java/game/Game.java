@@ -10,7 +10,7 @@ public class Game {
     private Grid grid;
     private Player player0;
     private boolean gameLooping;
-    private long now, last;
+    private long now, last, frameTime;
 
     public Game()
     {
@@ -28,7 +28,7 @@ public class Game {
         while(gameLooping)
         {
             now = System.nanoTime();
-            System.out.println(now - last);
+            System.out.println(frameTime = (now - last));
             update();
             last = now;
         }
@@ -38,7 +38,8 @@ public class Game {
     {
     }
 
-    public Grid getGrid() {
+    public Grid getGrid()
+    {
         return grid;
     }
 }
