@@ -8,7 +8,7 @@ public class Grid {
     private int[][] grid;
 
     public Grid() {
-        this.grid = new int[][];
+        this.grid = new int[10][21];
     }
 
     public int[][] get() {
