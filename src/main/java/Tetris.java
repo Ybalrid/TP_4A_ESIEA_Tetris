@@ -1,16 +1,15 @@
-import model.Position;
-import model.Tetromino;
 
-import java.util.Arrays;
+import game.Game;
 
 public class Tetris
 {
+    private static Game game;
+
     public static void main(String[] args)
     {
-        Tetromino L = new Tetromino('L', new Position(2,0));
-        System.out.println(Arrays.deepToString(L.getShape()));
-        L.rotate(true);
-        System.out.println(Arrays.deepToString(L.getShape()));
+        System.out.println("Hello java!");
+        game = new Game();
+        game.loop();
     }
 
     public static int returnTwo()
