@@ -8,6 +8,7 @@ import model.Grid;
 public class Game {
 
     private Grid grid;
+    private Player player0;
     private boolean gameLooping;
     private long now, last;
 
@@ -15,8 +16,8 @@ public class Game {
     {
         //Setup game environement here
         grid = new Grid();
-
         gameLooping = true;
+        player0 = new Player();
     }
 
     /**
