@@ -4,4 +4,30 @@ package model;
  * Created by kuro on 10/03/16.
  */
 public class Position {
+    //Position sur la grillepublic
+
+    private int x;
+    private int y;
+
+    public Position(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
 }
