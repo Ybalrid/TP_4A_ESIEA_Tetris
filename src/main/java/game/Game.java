@@ -9,7 +9,7 @@ public class Game {
 
     private Grid grid;
     private boolean gameLooping;
-
+    private long now, last;
 
     public Game()
     {
@@ -25,12 +25,16 @@ public class Game {
     public void loop()
     {
         while(gameLooping)
+        {
+            now = System.nanoTime();
+            System.out.println(now - last);
             update();
+            last = now;
+        }
     }
 
     private void update()
     {
-
     }
 
     public Grid getGrid() {
