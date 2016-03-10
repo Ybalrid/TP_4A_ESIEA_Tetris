@@ -4,7 +4,6 @@ package model;
  * Created by kuro on 10/03/16.
  */
 public class Position {
-    //Position sur la grillepublic
 
     private int x;
     private int y;
