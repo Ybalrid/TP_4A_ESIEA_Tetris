@@ -1,4 +1,6 @@
 
+import view.GameFrame;
+
 import game.Game;
 
 public class Tetris
@@ -9,12 +11,8 @@ public class Tetris
     {
         System.out.println("Hello java!");
         game = new Game();
+        new GameFrame(game);
         game.loop();
-    }
-
-    public static int returnTwo()
-    {
-        return 2;
     }
 }
 
