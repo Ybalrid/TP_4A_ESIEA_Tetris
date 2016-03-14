@@ -5,22 +5,24 @@ package model;
  */
 public class Tetromino {
 
+    private final TetrominoType type;
     private Position position;
     private int rotation; // 0 -> 0°; 1->90°; 2->180°; 3->270°
     private int[][] shape; // Must be square
 
     /** Possible values for type are [L,J,T,O,I,S,Z] */
-    public Tetromino(char type, Position position) {
+    public Tetromino(TetrominoType type, Position position) {
         this.position = position;
         this.rotation = 0;
-        switch (type){
-            case 'L': this.shape = new int[][] {{0,0,0,0},{1,1,1,0},{0,0,1,0},{0,0,0,0}}; break;
-            case 'J': this.shape = new int[][] {{0,0,0,0},{0,0,1,0},{1,1,1,0},{0,0,0,0}}; break;
-            case 'T': this.shape = new int[][] {{0,1,0,0},{0,1,1,0},{0,1,0,0},{0,0,0,0}}; break;
-            case 'O': this.shape = new int[][] {{0,0,0,0},{0,1,1,0},{0,1,1,0},{0,0,0,0}}; break;
-            case 'I': this.shape = new int[][] {{0,0,0,0},{1,1,1,1},{0,0,0,0},{0,0,0,0}}; break;
-            case 'S': this.shape = new int[][] {{0,0,1,0},{0,1,1,0},{0,1,0,0},{0,0,0,0}}; break;
-            case 'Z': this.shape = new int[][] {{0,1,0,0},{0,1,1,0},{0,0,1,0},{0,0,0,0}}; break;
+        this.type = type;
+        switch (type) {
+            case L: this.shape = new int[][] {{0,0,0,0},{1,1,1,0},{0,0,1,0},{0,0,0,0}}; break;
+            case J: this.shape = new int[][] {{0,0,0,0},{0,0,1,0},{1,1,1,0},{0,0,0,0}}; break;
+            case T: this.shape = new int[][] {{0,1,0,0},{0,1,1,0},{0,1,0,0},{0,0,0,0}}; break;
+            case O: this.shape = new int[][] {{0,0,0,0},{0,1,1,0},{0,1,1,0},{0,0,0,0}}; break;
+            case I: this.shape = new int[][] {{0,0,0,0},{1,1,1,1},{0,0,0,0},{0,0,0,0}}; break;
+            case S: this.shape = new int[][] {{0,0,1,0},{0,1,1,0},{0,1,0,0},{0,0,0,0}}; break;
+            case Z: this.shape = new int[][] {{0,1,0,0},{0,1,1,0},{0,0,1,0},{0,0,0,0}}; break;
         }
     }
 
@@ -57,6 +59,7 @@ public class Tetromino {
                 else            newShape[y][shape.length - 1 - x] = this.shape[x][y];
             }
         }
+        this.rotation += ((clockwise ? 1 : -1) + 4) % 4;
         this.shape = newShape;
     }
 
