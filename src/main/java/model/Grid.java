@@ -28,6 +28,6 @@ public class Grid {
     }
 
     public int getHeight() {
-        return this.grid.length;
+        return this.grid[0].length;
     }
 }
