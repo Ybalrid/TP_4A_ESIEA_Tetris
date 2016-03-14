@@ -22,4 +22,12 @@ public class Grid {
     public void set(Position pos, int value) {
         grid[pos.getX()][pos.getY()] = value;
     }
+
+    public int getWidth() {
+        return this.grid.length;
+    }
+
+    public int getHeight() {
+        return this.grid.length;
+    }
 }
