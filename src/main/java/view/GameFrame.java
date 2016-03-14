@@ -15,7 +15,7 @@ public class GameFrame extends JFrame {
     public GameFrame(Game game) throws HeadlessException {
         super("Tetris");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
+        //this.setResizable(false);
 
         this.gamePanel = new JPanel();
         this.gamePanel.add(new GridPanel(game));
