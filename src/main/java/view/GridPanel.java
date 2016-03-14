@@ -3,6 +3,7 @@ package view;
 import game.Game;
 import model.Grid;
 import model.Position;
+import model.TetrominoType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,11 +14,21 @@ import java.awt.*;
 public class GridPanel extends JPanel {
 
     private Grid grid;
-    private final Color[] tetrominoColors = new Color[7];
+    private final static int CELL_SIZE = 20;
+    /** T: purple, O: yellow, I: cyan, L: orange, J: blue, S: green, Z: red */
+    private final Color[] tetrominoColors = new Color[] {
+    	new Color(150, 50, 150),
+        new Color(200, 200, 0),
+        new Color(50, 180, 180),
+        new Color(230, 160, 0),
+        new Color(50, 50, 230),
+        new Color(80, 230, 20),
+        new Color(220, 13, 25)};
 
     public GridPanel(Game game) {
         this.grid = game.getGrid();
-        this.add(new JButton("Hello"));
+        this.setPreferredSize(new Dimension(CELL_SIZE * this.grid.getWidth(), CELL_SIZE * this.grid.getHeight()));
+        //this.add(new JButton("Hello"));
     }
 
     @Override
@@ -30,8 +41,8 @@ public class GridPanel extends JPanel {
         for (int i = 0; i < this.grid.getWidth(); i++) {
             for (int j = 0; j < this.grid.getHeight(); j++) {
                 val = this.grid.get(new Position(i, j));
-                //g2.setColor();
-                g2.drawRect(10 * i, 10 * j, 10, 10);
+                g2.setColor(this.tetrominoColors[val]);
+                g2.drawRect(CELL_SIZE * i, CELL_SIZE * j, CELL_SIZE, CELL_SIZE);
             }
 
         }
