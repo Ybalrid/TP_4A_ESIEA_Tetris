@@ -19,14 +19,20 @@ public class Grid {
             Arrays.fill(column, DEFAULT_GRID_VALUE);
     }
 
-    /** Return a copy of the grid */
+    /** Return a copy of the grid with a tetromino applied into */
     public Grid applyTetromino(Tetromino tetromino) {
         Grid modifiedGrid = new Grid();
+
         for (int i = 0; i < WIDTH; i++)
             for (int j = 0; j < HEIGHT; j++)
                 modifiedGrid.set(new Position(i, j), this.grid[i][j]);
-        for (Position pos : tetromino) // TODO: iterator
-            modifiedGrid.set(pos, tetromino.getType());
+
+        for (Position blockPos : tetromino)
+            modifiedGrid.set(new Position(
+                    blockPos.getX() + tetromino.getPosition().getX(),
+                    blockPos.getY() + tetromino.getPosition().getY()),
+                    tetromino.getType().ordinal());
+
         return modifiedGrid;
     }
 
