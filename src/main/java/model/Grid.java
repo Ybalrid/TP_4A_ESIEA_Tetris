@@ -8,16 +8,26 @@ import java.util.Arrays;
 public class Grid {
 
     private int[][] grid;
+
     public final static int DEFAULT_GRID_VALUE = -1;
+    public final static int WIDTH = 10;
+    public final static int HEIGHT = 21;
 
     public Grid() {
-        this.grid = new int[10][21];
+        this.grid = new int[WIDTH][HEIGHT];
         for (int[] column : grid)
             Arrays.fill(column, DEFAULT_GRID_VALUE);
     }
 
-    public int[][] get() {
-        return grid;
+    /** Return a copy of the grid */
+    public Grid applyTetromino(Tetromino tetromino) {
+        Grid modifiedGrid = new Grid();
+        for (int i = 0; i < WIDTH; i++)
+            for (int j = 0; j < HEIGHT; j++)
+                modifiedGrid.set(new Position(i, j), this.grid[i][j]);
+        for (Position pos : tetromino) // TODO: iterator
+            modifiedGrid.set(pos, tetromino.getType());
+        return modifiedGrid;
     }
 
     public int get(Position pos) {
@@ -28,11 +38,5 @@ public class Grid {
         grid[pos.getX()][pos.getY()] = value;
     }
 
-    public int getWidth() {
-        return this.grid.length;
-    }
 
-    public int getHeight() {
-        return this.grid[0].length;
-    }
 }
