@@ -38,10 +38,6 @@ public class Tetromino {
         return rotation;
     }
 
-    public void setRotation(int rotation) {
-        this.rotation = rotation;
-    }
-
     /** Optional */
     public int[][] getShape() {
         return shape;
