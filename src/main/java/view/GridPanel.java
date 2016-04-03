@@ -28,7 +28,7 @@ public class GridPanel extends JPanel {
 
     public GridPanel(Game game) {
         this.grid = game.getGrid();
-        this.setPreferredSize(new Dimension(CELL_SIZE * this.grid.getWidth(), CELL_SIZE * (this.grid.getHeight() - 1)));
+        this.setPreferredSize(new Dimension(CELL_SIZE * Grid.WIDTH, CELL_SIZE * (Grid.HEIGHT - 1)));
         this.grid.set(new Position(3,3), TetrominoType.Z.ordinal());
         this.grid.set(new Position(1,2), TetrominoType.I.ordinal());
         this.grid.set(new Position(1,4), TetrominoType.L.ordinal());
@@ -43,7 +43,7 @@ public class GridPanel extends JPanel {
         Graphics2D g2 = (Graphics2D)g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        int height = this.grid.getHeight()-1, width = this.grid.getWidth();
+        int height = Grid.HEIGHT-1, width = Grid.WIDTH;
 
         g2.setColor(GRID_COLOR);
         for (int i = 0; i < width; i++)
