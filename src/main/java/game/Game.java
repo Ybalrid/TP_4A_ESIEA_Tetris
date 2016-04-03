@@ -25,6 +25,9 @@ public class Game {
     private boolean gameLooping;
     private long lastUpdateTime; // nanoseconds
 
+    private ArrayList<GridObserver> gridObservers;
+    private ArrayList<ScoreObserver> scoreObservers;
+
     public Game()
     {
         // Setup game environment here
@@ -63,7 +66,7 @@ public class Game {
     {
         System.out.println("Update");
 
-        if ()
+        this.grid.update();
     }
 
     public Grid getGrid()
