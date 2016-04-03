@@ -70,6 +70,26 @@ public class Game {
         return grid;
     }
 
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public Tetromino getActiveTetromino() {
+        return activeTetromino;
+    }
+
+    public Tetromino getNextTetromino() {
+        return nextTetromino;
+    }
+
+    public Tetromino getStockTetromino() {
+        return stockTetromino;
+    }
+
     private void initTetrominosBag() {
         this.tetrominosBag = new ArrayList<Tetromino>(7);
         for (TetrominoType type : TetrominoType.values()) {
