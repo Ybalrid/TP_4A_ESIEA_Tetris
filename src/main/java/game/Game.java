@@ -1,9 +1,6 @@
 package game;
 
-import model.Grid;
-import model.Position;
-import model.Tetromino;
-import model.TetrominoType;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,7 +19,6 @@ public class Game {
     private ArrayList<Tetromino> tetrominosBag;
     private int tetrominosBagCounter;
 
-    private boolean gameLooping;
     private long lastUpdateTime; // nanoseconds
 
     private ArrayList<GridObserver> gridObservers;
@@ -48,7 +44,7 @@ public class Game {
         long now = System.nanoTime(), deltaTime;
         System.out.println("Startup time: " + (now - this.lastUpdateTime));
         this.lastUpdateTime = now;
-        this.gameLooping = true;
+        boolean gameLooping = true;
 
         while (gameLooping)
         {
@@ -65,7 +61,7 @@ public class Game {
     private void update()
     {
         System.out.println("Update");
-        
+
         this.grid.update();
     }
 
