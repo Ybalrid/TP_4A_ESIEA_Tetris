@@ -3,7 +3,7 @@ package model;
 import java.util.Iterator;
 
 /**
- * Created by kuro on 10/03/16.
+ * Created by Tenma on 10/03/16.
  */
 public class Tetromino implements Iterable<Position> {
 
