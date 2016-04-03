@@ -1,6 +1,7 @@
 package view;
 
 import game.Game;
+import game.GridObserver;
 import model.Grid;
 import model.Position;
 import model.TetrominoType;
@@ -11,7 +12,7 @@ import java.awt.*;
 /**
  * Created by Tenma on 10/03/16.
  */
-public class GridPanel extends JPanel {
+public class GridPanel extends JPanel implements GridObserver {
 
     private Grid grid;
     private final static int CELL_SIZE = 25;
@@ -64,5 +65,10 @@ public class GridPanel extends JPanel {
         }
 
         g2.dispose();
+    }
+
+    @Override
+    public void gridChanged() {
+        this.repaint();
     }
 }
