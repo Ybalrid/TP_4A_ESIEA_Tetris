@@ -17,6 +17,7 @@ public class GridTest extends Grid{
     @Before
     public void setUp() throws Exception {
         objectTest = new GridTest();
+        objectTest.
     }
 
     @Test
@@ -49,7 +50,7 @@ public class GridTest extends Grid{
 
     @Test
     private boolean isLineFull(int y) {
-        Position pos1 = new Position(10,5)
+        Position pos1 = new Position(10,5);
         objectTest.set(pos,5);
     }
 
