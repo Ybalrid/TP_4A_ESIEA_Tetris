@@ -58,7 +58,7 @@ public class ScoreDAO {
         Arrays.sort(scores, Collections.reverseOrder());
         StringBuilder scoresDump = new StringBuilder();
         for (int j = 0; j < scores.length; j++) {
-            scoresDump.append(((Integer)scores[j]).toString()+"\n");
+            scoresDump.append(scores[j].toString()).append('\n');
         }
         try {
             Files.write(scoresDump, this.highScoresFile, Charsets.UTF_8);
