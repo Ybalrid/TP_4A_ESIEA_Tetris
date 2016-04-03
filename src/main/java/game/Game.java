@@ -65,7 +65,7 @@ public class Game {
     private void update()
     {
         System.out.println("Update");
-
+        
         this.grid.update();
     }
 
