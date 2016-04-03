@@ -1,7 +1,12 @@
 package game;
 
 import model.Grid;
+import model.Position;
 import model.Tetromino;
+import model.TetrominoType;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Tenma on 10/03/16.
@@ -10,10 +15,12 @@ public class Game {
 
     private Grid grid;
     private Player players[];
+    private int level;
     private Tetromino activeTetromino;
     private Tetromino nextTetromino;
     private Tetromino stockTetromino;
-    private int level;
+    private ArrayList<Tetromino> tetrominosBag;
+    private int tetrominosBagCounter;
 
     private boolean gameLooping;
     private long lastUpdateTime; // nanoseconds
@@ -24,8 +31,9 @@ public class Game {
         this.grid = new Grid();
         this.players = new Player[] {new Player(), new Player()};
         this.level = 1;
-
-        this.gameLooping = true;
+        
+        this.initTetrominosBag();
+        
         this.lastUpdateTime = System.nanoTime();
     }
 
@@ -37,6 +45,7 @@ public class Game {
         long now = System.nanoTime(), deltaTime;
         System.out.println("Startup time: " + (now - this.lastUpdateTime));
         this.lastUpdateTime = now;
+        this.gameLooping = true;
 
         while (gameLooping)
         {
@@ -53,10 +62,31 @@ public class Game {
     private void update()
     {
         System.out.println("Update");
+
+        if ()
     }
 
     public Grid getGrid()
     {
         return grid;
+    }
+
+    private void initTetrominosBag() {
+        this.tetrominosBag = new ArrayList<Tetromino>(7);
+        for (TetrominoType type : TetrominoType.values()) {
+            this.tetrominosBag.add(new Tetromino(type, new Position(0, 0)));
+        }
+        this.shuffleTetrominosBag();
+    }
+
+    private void shuffleTetrominosBag() {
+        this.tetrominosBagCounter = 0;
+        Collections.shuffle(this.tetrominosBag);
+    }
+
+    private Tetromino getRandomTetromino() {
+        if (this.tetrominosBagCounter == this.tetrominosBag.size())
+            this.shuffleTetrominosBag();
+        return this.tetrominosBag.get(this.tetrominosBagCounter++);
     }
 }
