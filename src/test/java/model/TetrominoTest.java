@@ -36,14 +36,6 @@ public class TetrominoTest {
     }
 
     @Test
-    public void setRotation() throws Exception {
-        objectTest.setRotation(1);
-        int rot = objectTest.getRotation();
-        assertTrue("Rotation mise a jour", rot==1);
-
-    }
-
-    @Test
     public void rotate() throws Exception {
         objectTest.rotate(true);
 
