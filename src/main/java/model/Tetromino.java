@@ -38,8 +38,9 @@ public class Tetromino implements Iterable<Position> {
         return position;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    public void move(int deltaX, int deltaY) {
+        this.position.setX(this.position.getX() + deltaX);
+        this.position.setY(this.position.getY() + deltaY);
     }
 
     public int getRotation() {

@@ -63,6 +63,9 @@ public class Game {
         System.out.println("Update");
 
         this.grid.update();
+
+        this.notifyGridObservers();
+        this.notifyScoreObservers();
     }
 
     public Grid getGrid()
@@ -88,6 +91,26 @@ public class Game {
 
     public Tetromino getStockTetromino() {
         return stockTetromino;
+    }
+
+    public void addGridObserver(GridObserver obs) {
+        this.gridObservers.add(obs);
+    }
+
+    public void addScoreObserver(ScoreObserver obs) {
+        this.scoreObservers.add(obs);
+    }
+
+    private void notifyGridObservers() {
+        for (GridObserver obs : this.gridObservers) {
+            obs.gridChanged();
+        }
+    }
+
+    private void notifyScoreObservers() {
+        for (ScoreObserver obs : this.scoreObservers) {
+            obs.scoreChanged();
+        }
     }
 
     private void initTetrominosBag() {
