@@ -31,7 +31,7 @@ A priori 50 % TP - 50 % partiel
 
 ### TP
 
-| Points | Descriotion           | 
+| Points | Description           |
 | :----- |:-------------| 
 5 points | Architecture du code, découpage des classes, respect des principes Objects (SOLIDE), méthodes < 15 lignes... |
 5 points | La totalité des feature faites. Pas de bug et cas aux limites gérés (pas de stacktrace pendant l'execution) |
