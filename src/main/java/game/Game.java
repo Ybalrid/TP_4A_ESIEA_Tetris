@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by kuro on 10/03/16.
+ * Created by Tenma on 10/03/16.
  */
 public class Game {
 
