@@ -55,7 +55,7 @@ public class Grid {
     }
 
     private void fall() {
-        for (int y = HEIGHT - 1; y > 1; y++)
+        for (int y = HEIGHT - 1; y > 1; y--)
             if (this.isLineVoid(y))
                 for (int x = 0; x < WIDTH; x++)
                     this.grid[x][y] = this.grid[x][y-1];
