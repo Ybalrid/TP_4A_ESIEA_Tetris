@@ -1,6 +1,7 @@
 package game;
 
 import model.Grid;
+import model.Tetromino;
 
 /**
  * Created by kuro on 10/03/16.
@@ -9,9 +10,13 @@ public class Game {
 
     private Grid grid;
     private Player players[];
+    private Tetromino activeTetromino;
+    private Tetromino nextTetromino;
+    private Tetromino stockTetromino;
+    private int level;
+
     private boolean gameLooping;
     private long lastUpdateTime; // nanoseconds
-    private int level;
 
     public Game()
     {
