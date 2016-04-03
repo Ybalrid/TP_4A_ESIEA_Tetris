@@ -10,19 +10,18 @@ public class Game {
     private Grid grid;
     private Player players[];
     private boolean gameLooping;
-    private long now, last, frameTime;
+    private long lastUpdateTime; // nanoseconds
     private int level;
 
     public Game()
     {
-        //Setup game environement here
-        grid = new Grid();
-        gameLooping = true;
-        players = new Player[2];
-        players[0] = new Player();
-        players[1] = new Player();
-        level = 1;
+        // Setup game environment here
+        this.grid = new Grid();
+        this.players = new Player[] {new Player(), new Player()};
+        this.level = 1;
 
+        this.gameLooping = true;
+        this.lastUpdateTime = System.nanoTime();
     }
 
     /**
@@ -30,17 +29,25 @@ public class Game {
      */
     public void loop()
     {
-        while(gameLooping)
+        long now = System.nanoTime(), deltaTime;
+        System.out.println("Startup time: " + (now - this.lastUpdateTime));
+        this.lastUpdateTime = now;
+
+        while (gameLooping)
         {
             now = System.nanoTime();
-            System.out.println(frameTime = (now - last));
-            update();
-            last = now;
+            deltaTime = (now - this.lastUpdateTime);
+            if (now % 100000 == 0) System.out.println("DT: " + String.valueOf(deltaTime / 1_000_000f) + "ms");
+            if (deltaTime >= 1_000_000_000) {
+                update();
+                this.lastUpdateTime = now;
+            }
         }
     }
 
     private void update()
     {
+        System.out.println("Update");
     }
 
     public Grid getGrid()
