@@ -28,7 +28,7 @@ public class Game {
     {
         // Setup game environment here
         this.grid = new Grid();
-        this.players = new Player[] {new Player(), new Player()};
+        this.players = new Player[] {new Player("Player1"), new Player("Player2")};
         this.level = 1;
         
         this.initTetrominosBag();
