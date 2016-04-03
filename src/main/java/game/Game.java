@@ -28,7 +28,7 @@ public class Game {
     {
         // Setup game environment here
         this.grid = new Grid();
-        this.players = new Player[] {new Player(), new Player()};
+        this.players = new Player[] {new Player("Player1"), new Player("Player2")};
         this.level = 1;
         
         this.initTetrominosBag();
@@ -63,11 +63,54 @@ public class Game {
         System.out.println("Update");
 
         this.grid.update();
+
+        this.notifyGridObservers();
+        this.notifyScoreObservers();
     }
 
     public Grid getGrid()
     {
         return grid;
+    }
+
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public Tetromino getActiveTetromino() {
+        return activeTetromino;
+    }
+
+    public Tetromino getNextTetromino() {
+        return nextTetromino;
+    }
+
+    public Tetromino getStockTetromino() {
+        return stockTetromino;
+    }
+
+    public void addGridObserver(GridObserver obs) {
+        this.gridObservers.add(obs);
+    }
+
+    public void addScoreObserver(ScoreObserver obs) {
+        this.scoreObservers.add(obs);
+    }
+
+    private void notifyGridObservers() {
+        for (GridObserver obs : this.gridObservers) {
+            obs.gridChanged();
+        }
+    }
+
+    private void notifyScoreObservers() {
+        for (ScoreObserver obs : this.scoreObservers) {
+            obs.scoreChanged();
+        }
     }
 
     private void initTetrominosBag() {
